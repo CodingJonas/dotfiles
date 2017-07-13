@@ -116,6 +116,8 @@ alias view="nvim -R"
 alias zshrc="nvim ~/.zshrc"
 alias please='sudo $(fc -nl -1)'
 alias signalMessenger="google-chrome-stable --app-id=bikioccmkafdpakkkcpdbppfkghcmihk"
+alias setclip="xclip -selection c"
+alias getclip="xclip -selection c -o"
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
