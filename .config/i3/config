@@ -15,13 +15,21 @@
 font pango:DejaVu Sans Mono 8
 
 
-# Colors
-set $bg-color 	         #2d76f6
-set $inactive-bg-color   #2f343f
+# Pineapple Style
+set $bg-color 	         #ddb114
+set $inactive-bg-color   #57a483
 set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
+set $inactive-text-color #5b6068
 set $urgent-bg-color     #E53935
 set $separator-color     #a8342e
+
+# Colors
+# set $bg-color 	       #2d76f6
+# set $inactive-bg-color   #2f343f
+# set $text-color          #f3f4f5
+# set $inactive-text-color #676E7D
+# set $urgent-bg-color     #E53935
+# set $separator-color     #a8342e
 
 # $i3-theme-window
 # google accents
@@ -37,8 +45,8 @@ set $yellow #ffc609
 # window colors
 #                       border              background         text                 indicator
 client.focused          $bg-colors          $bg-color          $text-color          #00ff00
-client.unfocused        $iancative-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $iancative-bg-color $inactive-bg-color $inactive-text-color #00ff00
+client.unfocused        $inacative-bg-color $inactive-bg-color $inactive-text-color #00ff00
+client.focused_inactive $inacative-bg-color $inactive-bg-color $inactive-text-color #00ff00
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
 
 # Start polybar
@@ -245,7 +253,7 @@ bindsym $mod+shift+x exec i3lock -i /home/jonas/Pictures/wallpaper.jpg --color "
 
 # Startup
 exec_always --no-startup-id feh --bg-scale /home/jonas/Pictures/wallpaper.jpg
-exec_always --no-startup-id compton --config ~/.compton.config
+exec_always --no-startup-id compton --config ~/.config/compton.config
 
 exec_always compton
 
