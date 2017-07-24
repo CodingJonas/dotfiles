@@ -54,7 +54,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git, colored-man-pages, colorize, nyan, web-search)
 
 
 # User configuration
@@ -124,4 +124,10 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
 fi
 
+# Execute ls command when I press space twice
+bindkey -s ^h 'ls\n'
+bindkey -s ^H 'ls -la\n'
+
+# Source to make autojump work
+source /etc/profile.d/autojump.zsh
 source $ZSH/oh-my-zsh.sh

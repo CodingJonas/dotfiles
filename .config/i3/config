@@ -17,7 +17,8 @@ font pango:DejaVu Sans Mono 8
 
 # Pineapple Style
 set $bg-color 	         #ddb114
-set $inactive-bg-color   #57a483
+# set $inactive-bg-color   #57a483
+set $inactive-bg-color   #003090
 set $text-color          #f3f4f5
 set $inactive-text-color #5b6068
 set $urgent-bg-color     #E53935
@@ -45,7 +46,7 @@ set $yellow #ffc609
 # window colors
 #                       border              background         text                 indicator
 client.focused          $bg-colors          $bg-color          $text-color          #00ff00
-client.unfocused        $inacative-bg-color $inactive-bg-color $inactive-text-color #00ff00
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
 client.focused_inactive $inacative-bg-color $inactive-bg-color $inactive-text-color #00ff00
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
 
@@ -252,7 +253,8 @@ bindsym $alt_l+a exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spot
 bindsym $mod+shift+x exec i3lock -i /home/jonas/Pictures/wallpaper.jpg --color "$bg-color"
 
 # Startup
-exec_always --no-startup-id feh --bg-scale /home/jonas/Pictures/wallpaper.jpg
+# exec_always --no-startup-id feh --bg-scale /home/jonas/Pictures/wallpaper.jpg
+exec_always --no-startup-id feh --bg-scale $(ls ~/Pictures/Pokemon_terminal_images/*/* -1 | shuf -n1)
 exec_always --no-startup-id compton --config ~/.config/compton.config
 
 exec_always compton
@@ -269,7 +271,7 @@ for_window [class="Google-chrome"] border none
 # Chat windows
 exec messengerfordesktop
 exec Whatsapp
-exec google-chrome-stable --app-id=bikioccmkafdpakkkcpdbppfkghcmihk
+exec --no-startup-id google-chrome-stable --app-id=bikioccmkafdpakkkcpdbppfkghcmihk
 assign [class="Messenger for Desktop"] $workspace1
 assign [class="whatsapp-desktop"] $workspace1
 assign [class="crx_bikioccmkafdpakkkcpdbppfkghcmihk"] $workspace1
@@ -278,7 +280,9 @@ for_window [class="whatsapp-desktop"] border none
 for_window [class="Thunderbird"] border none
 for_window [class="Spotify"] border none
 
-exec volnoti -t 0.9
+# Notifications for sound and in general
+exec --no-startup-id volnoti -t 0.9
+exec --no-startup-id dunst
 
 # Make certain workspaces stacked. To change this, change the script
 exec_always ~.config/i3/contrib/per-workspace-layout.pl
