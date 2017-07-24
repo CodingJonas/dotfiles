@@ -110,24 +110,15 @@ zstyle ':completion:*' matcher-list '' \
   'r:[^[:alpha:]]||[[:alpha:]]=** r:|=* m:{a-z\-}={A-Z\_}' \
   'r:|?=** m:{a-z\-}={A-Z\_}'
 
-alias init.vim="nvim ~/.config/nvim/init.vim"
-alias i3.config="nvim ~/.config/i3/config"
-alias view="nvim -R"
-alias zshrc="nvim ~/.zshrc"
-alias please='sudo $(fc -nl -1)'
-alias signalMessenger="google-chrome-stable --app-id=bikioccmkafdpakkkcpdbppfkghcmihk"
-alias setclip="xclip -selection c"
-alias getclip="xclip -selection c -o"
-
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
 fi
 
-# Execute ls command when I press space twice
-bindkey -s ^h 'ls\n'
-bindkey -s ^H 'ls -la\n'
-
 # Source to make autojump work
 source /etc/profile.d/autojump.zsh
 source $ZSH/oh-my-zsh.sh
+source $HOME/.aliases
+
+# Execute ls command when I press space twice
+bindkey -s '  ' 'ls\n'

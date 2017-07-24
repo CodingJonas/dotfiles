@@ -1,6 +1,6 @@
 # Make sure this is before the 'exec' command or it won't be sourced.
-# [ -f /etc/xprofile ] && . /etc/xprofile
 [ -f ~/.xprofile ] && . ~/.xprofile
+[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
 # set scrolling and input delay to 200ms
 xset r rate 150

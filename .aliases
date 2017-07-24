@@ -1,0 +1,8 @@
+alias init.vim="nvim ~/.config/nvim/init.vim"
+alias i3.config="nvim ~/.config/i3/config"
+alias view="nvim -R"
+alias zshrc="nvim ~/.zshrc"
+alias please='sudo $(fc -nl -1)'
+alias signalMessenger="google-chrome-stable --app-id=bikioccmkafdpakkkcpdbppfkghcmihk"
+alias setclip="xclip -selection c"
+alias getclip="xclip -selection c -o"
