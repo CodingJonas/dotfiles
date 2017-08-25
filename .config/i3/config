@@ -15,7 +15,7 @@
 font pango:DejaVu Sans Mono 8
 
 
-# Pineapple Style
+                                                        # Pineapple Style
 set_from_resource  $bg-color             color3              #ddb114
 set_from_resource  $inactive-bg-color    color8              #003090
 set_from_resource  $text-color           color15             #f3f4f5
@@ -43,12 +43,14 @@ set  $yellow  #ffc609
 set  $green2  #57a483
 
 
+bindsym $mod+Shift+w exec "wal -i $HOME/Pictures/Pokemon_terminal_images/hoenn -o $HOME/scripts/wal-set"
+
 
 # window colors
 #                       border              background         text                 indicator
 client.focused          $bg-colors          $bg-color          $text-color          #00ff00
 client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $inacative-bg-color $inactive-bg-color $inactive-text-color #00ff00
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
 
 # Start polybar

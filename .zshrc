@@ -121,4 +121,4 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
 
 # Execute ls command when I press space twice
-bindkey -s '  ' 'ls\n'
+# bindkey -s '  ' 'ls\n'
