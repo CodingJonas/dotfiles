@@ -122,3 +122,5 @@ source $HOME/.aliases
 
 # Execute ls command when I press space twice
 # bindkey -s '  ' 'ls\n'
+alias rm=ls
+xmodmap .Xmodmap
