@@ -122,3 +122,6 @@ source $HOME/.aliases
 
 # Execute ls command when I press space twice
 # bindkey -s '  ' 'ls\n'
+
+# Make Tensorflow stop complaining
+export TF_CPP_MIN_LOG_LEVEL=2
