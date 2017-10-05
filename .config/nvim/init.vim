@@ -71,6 +71,9 @@ Plug 'johngrib/vim-game-snake'
 Plug 'rakr/vim-one'
 Plug 'dylanaraps/wal.vim'
 
+" For taking notes
+Plug 'vimwiki/vimwiki'
+
 call plug#end()
 filetype plugin indent on
 
@@ -193,6 +196,10 @@ noremap <leader>D :Dox<Cr>
 """"" quick-scope
 " Trigger a highlight in the appropriate direction when pressing these keys:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+
+""""" vimwiki
+:nmap <Leader>we <Plug>VimwikiSplitLink
 
 """"""""""""""""""""""""""""""""""""""""
 """""""""""" GENERAL SETTINGS""""""""""""
