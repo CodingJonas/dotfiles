@@ -83,6 +83,7 @@ export BROWSER=/usr/bin/google-chrome-stable
 
 # zsh assumes wrong decoding
 export LC_CTYPE=en_US.UTF-8
+export DICTIONARY=de_DE
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -125,3 +126,4 @@ source $HOME/.aliases
 
 # Make Tensorflow stop complaining
 export TF_CPP_MIN_LOG_LEVEL=2
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
