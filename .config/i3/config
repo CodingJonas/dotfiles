@@ -268,10 +268,10 @@ for_window [class="Spotify"] move to workspace $workspace10
 
 # Browser
 exec google-chrome-stable
-assign [class="Google-chrome"] $workspace3
+assign [class="Google-chrome"] $workspace2
 for_window [class="Google-chrome"] border none
-exec qutebrowser
-assign [class="qutebrowser"] $workspace2
+# exec qutebrowser
+# assign [class="qutebrowser"] $workspace2
 # for_window [class="qutebrowser"] border none
 
 # Chat windows
