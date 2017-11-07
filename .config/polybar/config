@@ -65,9 +65,10 @@ wm-restack = i3
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
-[module/xwindowi
+[module/xwindow]
 type = internal/xwindow
-label = %title:0:100:...%
+label = %title%
+label-maxlen = 100
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -98,17 +99,14 @@ click-middle = playerctl play-pause
 click-right = playerctl next
 
 [module/filesystem]
-type = internal/fs
-interval = 25
-
-mount-0 = /
-; mount-1 = /storage
-
-label-mounted = %{F#8a8a8a}%mountpoint%%{F-} %percentage_used%%
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
-
-format-mounted-underline = #689F38
+type = custom/script
+interval = 2
+label = %output%
+format = <label>
+format-underline = #689F38
+format-prefix = "disk "
+format-prefix-foreground = ${colors.foreground-alt}
+exec = df -m /dev/sda4 | sed -En 's~.* ([0-9]+)([0-9]{3}) +([0-9]+%).*~\1.\2MB/\3~gp'
 
 [module/bspwm]
 type = internal/bspwm
@@ -197,7 +195,7 @@ label = %percentage%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "ram/mem "
+format-prefix = "ram "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #EF6C00
 label = %percentage_used%%
@@ -213,11 +211,10 @@ label-connected-foreground = ${colors.foreground}
 label-connected = %signal%% %essid% %downspeed%
 format-connected-foreground = ${colors.foreground-alt}
 
-;format-disconnected = wifi <label-disconnected>
-format-disconnected =
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = [DOWN]
-;label-disconnected-foreground = ${colors.foreground-alt}
+format-disconnected =  <label-disconnected>
+format-disconnected-underline = ${self.format-connected-underline}
+label-disconnected = [DOWN]
+label-disconnected-foreground = ${colors.foreground-alt}
 
 ramp-signal-0 = [0]
 ramp-signal-1 = [1]
@@ -230,16 +227,15 @@ ramp-signal-foreground = ${colors.foreground-alt}
 type = internal/date
 interval = 1
 
-date =
-date-alt = "%Y-%m-%d "
+date = "%d-%m "
+date-alt = "%d-%m-%Y "
 
 time = %H:%M
 time-alt = %H:%M:%S
 
-;format-prefix = date
-;format-prefix = ""
+; format-prefix = date
 format = <label>
-;format-prefix-foreground = ${colors.foreground-alt}
+; format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #C62828
 
 label = %date%%time%
@@ -249,14 +245,22 @@ type = custom/script
 interval = 1200
 format = <label>
 format-underline = #dc322f
-label = "%output:0:30%"
-exec = ~/.config/polybar/pkg.sh
+
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+label = %output%
+exec = checkupdates | wc -l
 exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
+
+click-left = termite -e "sudo pacman -Syu"
+click-right = playerctl next
 
 [module/bright]
 type = custom/script
 interval = 2
-label =  %output%
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+label = %output%
 format = <label>
 format-underline = #FCD228
 exec = xbacklight | awk -F'.' '{print $1"%"}'

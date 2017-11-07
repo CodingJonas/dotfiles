@@ -120,7 +120,7 @@ function listen {
     firstrun=0
 
     pactl subscribe 2>/dev/null | {
-        while true; do 
+        while true; do
             {
                 # If this is the first time just continue
                 # and print the current state
@@ -150,9 +150,9 @@ function output() {
     volMuteStatus
     if [ "${curStatus}" = 'yes' ]
     then
-        echo " $curVol%"
+        echo "%{F#8a8a8a} %{F-}$curVol%"
     else
-        echo " $curVol%"
+        echo "%{F#8a8a8a} %{F-}$curVol%"
     fi
 } #}}}
 
