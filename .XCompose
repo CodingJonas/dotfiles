@@ -21,8 +21,12 @@
 <Multi_key> <space> <A>     : "Å"   U00C5   # U+00C5 LATIN CAPITAL LETTER A WITH RING ABOVE
 <Multi_key> <space> <e>     : "æ"   U00E6   # U+00E6 LATIN SMALL LETTER AE
 <Multi_key> <space> <E>     : "Æ"   U00C6   # U+00C6 LATIN CAPITAL LETTER AE
+<Multi_key> <a> <e>         : "æ"   U00E6   # U+00E6 LATIN SMALL LETTER AE
+<Multi_key> <A> <E>         : "Æ"   U00C6   # U+00C6 LATIN CAPITAL LETTER AE
 <Multi_key> <space> <space> : "~"   asciitilde # TILDE
 <Multi_key> <s> <s>         : "ß"   U00DF   # U+00DF LATIN SMALL LETTER SHARP S
+<Multi_key> <slash> <o>	    : "ø"   U00F8 # LATIN SMALL LETTER O WITH STROKE
+<Multi_key> <slash> <O>	    : "Ø"   U00D8 # LATIN CAPITAL LETTER O WITH STROKE
 
 # Spacing versions of dead accents
 <dead_tilde> <space>             	: "~"   asciitilde # TILDE
