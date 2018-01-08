@@ -285,13 +285,10 @@ for_window [class="Google-chrome"] border none
 # for_window [class="qutebrowser"] border none
 
 # Chat windows
-exec messengerfordesktop
-exec Whatsapp
-assign [class="Messenger for Desktop"] $workspace1
-assign [class="whatsapp-desktop"] $workspace1
+exec rambox
+assign [class="Rambox"] $workspace1
 
-for_window [class="Messenger for Desktop"] border none
-for_window [class="whatsapp-desktop"] border none
+for_window [class="Rambox"] border none
 for_window [class="Thunderbird"] border none
 for_window [class="Spotify"] border none
 

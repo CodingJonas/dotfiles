@@ -16,7 +16,8 @@ Plug 'tpope/vim-commentary'
 " Restore view after opening a file
 Plug 'vim-scripts/restore_view.vim'
 
-" Easy extending of selections Plug 'https://github.com/terryma/vim-expand-region'
+" Easy extending of selections
+" Plug 'terryma/vim-expand-region'
 
 " Swap windows easily
 Plug 'wesQ3/vim-windowswap'
@@ -38,6 +39,7 @@ Plug 'tell-k/vim-autopep8', {'for': 'python'}
 " Auto-complete
 Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/neoinclude.vim'
+Plug 'zchee/deoplete-jedi'
 " Plug 'LuXuryPro/deoplete-rtags'
 
 " Show function signature from autocompletion TODO: not working currently
@@ -122,17 +124,20 @@ inoremap (( (
 inoremap )) )
 inoremap "" "
 inoremap '' '
+inoremap `` `
 
 """"" vim-clang-format
 let g:clang_format#detect_style_file = 1
 nnoremap <Leader>f :ClangFormat<CR>
 vnoremap <Leader>f :ClangFormat<CR>
-nmap <Leader>F :ClangFormatAutoToggle<CR>
+" Set a marker to jump back to position after formatting
+nmap <Leader>F mz:ClangFormatAutoToggle<CR>`z
 
 """"" vim-autopep8
-let g:autopep8_max_line_length=79
+let g:autopep8_max_line_length=120
 let g:autopep8_indent_size=4
-autocmd FileType python noremap <leader>f :Autopep8()<CR>
+let g:autopep8_disable_show_diff=1
+autocmd FileType python noremap <leader>f mz:Autopep8<CR>`z
 
 """"" deoplete
 let g:deoplete#enable_at_startup = 1
@@ -147,6 +152,7 @@ inoremap <silent><expr> <TAB>
 		let col = col('.') - 1
 		return !col || getline('.')[col - 1]  =~ '\s'
 		endfunction"}}}
+let g:deoplete#sources#jedi#server_timeout = 1
 
 
 """"" echodoc
