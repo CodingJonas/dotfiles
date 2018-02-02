@@ -91,7 +91,6 @@ colorscheme gruvbox
 " colorscheme wal
 
 
-
 """""" NERDTREE
 nnoremap <leader>t :NERDTreeToggle<CR>
 autocmd BufEnter * lcd %:p:h
@@ -152,7 +151,7 @@ inoremap <silent><expr> <TAB>
 		let col = col('.') - 1
 		return !col || getline('.')[col - 1]  =~ '\s'
 		endfunction"}}}
-let g:deoplete#sources#jedi#server_timeout = 1
+" let g:deoplete#sources#jedi#server_timeout = 1
 
 
 """"" echodoc

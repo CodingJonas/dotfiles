@@ -9,7 +9,7 @@ xset r rate 150
 xrandr --output HDMI1 --right-of eDP1
 
 # Set the compose key
-setxkbmap -option "compose:rctrl"
+setxkbmap -option "compose:caps"
 
 # Fire up i3
 exec i3 -V >> ~/i3logs/i3log-$(date +'%F-%k-%M-%S') 2>&1

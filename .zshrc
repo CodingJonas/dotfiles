@@ -125,5 +125,5 @@ source $HOME/.aliases
 # bindkey -s '  ' 'ls\n'
 
 # Make Tensorflow stop complaining
-export TF_CPP_MIN_LOG_LEVEL=2
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+# export TF_CPP_MIN_LOG_LEVEL=2
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib

@@ -275,6 +275,7 @@ exec_always compton
 # Autostart programms
 exec spotify
 for_window [class="Spotify"] move to workspace $workspace10
+exec nm-applet
 
 # Browser
 exec google-chrome-stable
@@ -297,11 +298,12 @@ exec --no-startup-id volnoti -t 0.9
 exec --no-startup-id dunst
 
 # Make certain workspaces stacked. To change this, change the script
-exec_always ~.config/i3/contrib/per-workspace-layout.pl
+exec_always ~/.config/i3/contrib/per-workspace-layout.pl
 
 # For debugging graphical windows, I need floating windows
 for_window [class="i3 - make this float!"] floating enable
 
+# exec "xmodmap ~/.Xmodmap"
 exec "setxkbmap -layout se"
 
 # Autostart redshift to set screen colors the way I want them to
