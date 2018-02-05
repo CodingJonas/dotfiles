@@ -1,0 +1,113 @@
+// Find all information on https://github.com/twolfson/sublime-files/blob/3083.0.0/Packages/Vintage/Default.sublime-keymap
+[
+	//Vintage
+	{
+   "keys": ["j", "k"], "command": "exit_insert_mode",
+   "context":
+   [
+       { "key": "setting.command_mode", "operand": false },
+       { "key": "setting.is_widget", "operand": false }
+   ]
+},
+{ "keys": ["L"], "command": "set_motion", "args": {
+	"motion": "vi_move_to_hard_eol",
+	"motion_args": {"repeat": 1, "extend": true},
+	"inclusive": true,
+	"clip_to_line": true },
+	"context": [{"key": "setting.command_mode"}]
+},
+{ "keys": ["H"], "command": "set_motion", "args": {
+	"motion": "move_to",
+	"motion_args": {"to": "hardbol", "extend": true }},
+	"context":
+	[
+		{"key": "setting.command_mode"},
+		{"key": "vi_has_repeat_digit", "operand": false}
+	]
+},
+{ "keys": ["enter"], "command" : "save",
+	"context":
+	[{"key": "setting.command_mode"}] },
+{ "keys": ["'", "<character>"], "command": "vi_select_bookmark",
+	"context": [{"key": "setting.command_mode"}]
+},
+{ "keys": [" ", "q"], "command": "close",
+	"context": [{"key": "setting.command_mode"}]
+},
+
+{ "keys": [" ", "c"], "command": "toggle_comment", "args": { "block": false } },
+{ "keys": [" ", "C"], "command": "toggle_comment", "args": { "block": true } },
+
+{ "keys": [" ", "m"], "command": "toggle_minimap" },
+
+
+// JEDI Complete
+{
+	"keys": [" ", "d"],
+	"command": "sublime_jedi_docstring",
+    "context": [
+        {"key": "selector", "operator": "equal", "operand":  "source.python - string - comment"},
+        {"key": "setting.command_mode"}, 
+    ]
+},
+{
+	"keys": [" ", "g"],
+	"command": "sublime_jedi_goto",
+    "context": [
+        {"key": "selector", "operator": "equal", "operand":  "source.python - string - comment"},
+        {"key": "setting.command_mode"}, 
+    ]
+},
+
+// PEP8 Autoformatter
+{ "keys": [" ", "f"], "command": "pep8_autoformat",
+ "context": [{"key": "setting.command_mode"},
+        {"key": "selector", "operator": "equal", "operand":  "source.python - string - comment"},
+ ]},
+
+// Linter
+{ "keys": [" ", "l"], "command": "sublimelinter_show_all_errors", "context": [{"key": "setting.command_mode"},] },
+{ "keys": [" ", "L"], "command": "sublimelinter_goto_error", "args": {"direction": "next"}, "context": [{"key": "setting.command_mode"},] },
+
+// Origami
+{ "keys": ["ctrl+k"], "command": "travel_to_pane", "args": {"direction": "up"}, "context": [{"key": "setting.command_mode"}], },
+{ "keys": ["ctrl+l"], "command": "travel_to_pane", "args": {"direction": "right"}, "context": [{"key": "setting.command_mode"}], },
+{ "keys": ["ctrl+j"], "command": "travel_to_pane", "args": {"direction": "down"}, "context": [{"key": "setting.command_mode"}], },
+{ "keys": ["ctrl+h"], "command": "travel_to_pane", "args": {"direction": "left"}, "context": [{"key": "setting.command_mode"}], },
+
+{ "keys": ["ctrl+w", "k"], "command": "carry_file_to_pane", "args": {"direction": "up"}, "context": [{"key": "setting.command_mode"}], },
+{ "keys": ["ctrl+w", "l"], "command": "carry_file_to_pane", "args": {"direction": "right"}, "context": [{"key": "setting.command_mode"}], },
+{ "keys": ["ctrl+w", "j"], "command": "carry_file_to_pane", "args": {"direction": "down"}, "context": [{"key": "setting.command_mode"}], },
+{ "keys": ["ctrl+w", "h"], "command": "carry_file_to_pane", "args": {"direction": "left"}, "context": [{"key": "setting.command_mode"}], },
+
+// { "keys": ["ctrl+d", "ctrl+d"], "command": "destroy_pane", "args": {"direction": "self"}, "context": [{"key": "setting.command_mode"}], },
+
+{ "keys": [" ", "tab"], "command": "next_view", "context": [{"key": "setting.command_mode"}], },
+{ "keys": [" ", "alt+tab"], "command": "prev_view", "context": [{"key": "setting.command_mode"}], }, 
+
+// Improve sidebar
+{ "keys": ["h"], "command": "move", "args": {"by": "characters", "forward": false}, "context":
+    [ {"key": "control", "operand": "sidebar_tree"} ]
+},
+{ "keys": ["j"], "command": "move", "args": {"by": "lines", "forward": true}, "context":
+    [ {"key": "control", "operand": "sidebar_tree"} ]
+},
+{ "keys": ["k"], "command": "move", "args": {"by": "lines", "forward": false}, "context":
+    [ {"key": "control", "operand": "sidebar_tree"} ]
+},
+{ "keys": ["l"], "command": "move", "args": {"by": "characters", "forward": true}, "context":
+    [ {"key": "control", "operand": "sidebar_tree"} ]
+},
+{ "keys": [" ", "S"], "command": "toggle_side_bar" },
+{ "keys": [" ", "s"], "command": "focus_side_bar" },
+
+// Sidebar Enhacements
+{"keys": [" ", "t"], "command": "side_bar_new_file2"},
+    {
+        "keys": [" ", "r"],
+        "command": "side_bar_rename",
+        "context": [{"key": "setting.command_mode"}],
+    },
+
+{ "keys": ["ctrl+shift+r"], "command": "reveal_in_side_bar"}
+]

@@ -1,0 +1,21 @@
+{
+	"__vi_external_disable": false,
+	"auto_complete_function_params": "required",
+	"auto_complete_triggers":
+	[
+		{
+			"characters": ".",
+			"selector": "source.python"
+		}
+	],
+	"color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
+	"font_size": 10,
+	"ignored_packages":
+	[
+	],
+	"origami_auto_close_empty_panes": true,
+	"save_on_focus_lost": true,
+	"theme": "Material-Theme.sublime-theme",
+	"vintage_start_in_command_mode": true,
+	"preview_on_click": false,	
+}

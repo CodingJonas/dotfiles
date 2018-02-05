@@ -1,0 +1,20 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"All Autocomplete",
+		"Git",
+		"Jedi - Python autocompletion",
+		"Material Theme",
+		"Origami",
+		"Package Control",
+		"Python PEP8 Autoformat",
+		"SideBarEnhancements",
+		"Sublime Files",
+		"SublimeLinter",
+		"SublimeLinter-flake8"
+	]
+}
