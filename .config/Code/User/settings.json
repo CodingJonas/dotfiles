@@ -1,0 +1,102 @@
+{
+    "editor.fontSize": 12,
+    "editor.cursorBlinking": "solid",
+    "files.autoSave": "onFocusChange",
+
+    // Vim settings
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j","k"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before":["<leader>","t"],
+            "after":[],
+            "commands": [
+                {
+                    "command": "workbench.action.terminal.focus",
+                        "args": []
+                }
+            ],
+        },
+        {
+            "before":["<leader>", "<tab>"],
+            "after":[],
+            "commands": [
+                {
+                    "command": "workbench.action.nextEditor",
+                        "args": []
+                }
+            ],
+        },
+        {
+            "before": ["<leader>", "e"],
+            "commands": [
+                {
+                    "command": "workbench.action.toggleSidebarVisibility"
+                }
+            ]
+        },
+        {
+            "before":["L"],
+            "after":["$"]
+        },
+        {
+            "before":["H"],
+            "after":["0"]
+        },
+        {
+            "before":["J"],
+            "after":["L"]
+        },
+        {
+            "before":["K"],
+            "after":["H"]
+        },
+        {
+            "before":["<leader>", "p"],
+            "after":["<C-V>"]
+        },
+        {
+            "before":["<leader>", "y"],
+            "after":["<C-C>"]
+        },
+        {
+            "before":["<Esc>"],
+            "after":[],
+            "commands": [
+                {
+                    "command": ":nohl"
+                }
+            ]
+        },
+        {
+            "before": ["<Enter>"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.files.save",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": ["<leader>", "q"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.closeActiveEditor",
+                    "args": []
+                }
+            ]
+        }
+    ],
+}
