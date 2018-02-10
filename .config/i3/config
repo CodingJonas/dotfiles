@@ -56,7 +56,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 ####
 # i3 gaps specific settings
-gaps inner 8
+gaps inner 0 # was 8
 gaps outer 0
 smart_gaps on
 for_window [class="^.*"] border pixel 2
