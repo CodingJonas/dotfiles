@@ -1,7 +1,7 @@
 syntax on
 let mapleader = "\<Space>"
 set background=dark
-colorscheme gruvbox
+" colorscheme gruvbox
 
 """"""""""""""""""""""""""""""""""""""""
 """""""""""" GENERAL SETTINGS""""""""""""
@@ -86,8 +86,10 @@ set backupdir=~/.vim/backup
 "highlight ColorColumn guibg=gray15
 "let &colorcolumn="80"
 
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[4 q"
+let &t_EI = "\<Esc>[2 q"
 
-"""""""""""""""""""""""""""""""""""""""""
 """"""""""""""KEY MAPPINGS"""""""""""""""
 """""""""""""""""""""""""""""""""""""""""
 
