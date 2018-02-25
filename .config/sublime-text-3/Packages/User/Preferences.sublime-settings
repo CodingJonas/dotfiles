@@ -14,8 +14,8 @@
 	[
 	],
 	"origami_auto_close_empty_panes": true,
+	"preview_on_click": false,
 	"save_on_focus_lost": true,
 	"theme": "Material-Theme.sublime-theme",
-	"vintage_start_in_command_mode": true,
-	"preview_on_click": false,	
+	"vintage_start_in_command_mode": true
 }

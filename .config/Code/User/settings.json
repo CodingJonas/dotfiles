@@ -3,6 +3,11 @@
     "editor.cursorBlinking": "solid",
     "files.autoSave": "onFocusChange",
 
+    // Python settings
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true,
+
     // Vim settings
     "vim.easymotion": true,
     "vim.incsearch": true,
@@ -18,6 +23,16 @@
     ],
     "vim.otherModesKeyBindingsNonRecursive": [
         {
+            "before":["<leader>","c"],
+            "after":[],
+            "commands": [
+                {
+                    "command": "editor.action.commentLine",
+                        "args": []
+                }
+            ],
+        },
+        {
             "before":["<leader>","t"],
             "after":[],
             "commands": [
@@ -28,11 +43,11 @@
             ],
         },
         {
-            "before":["<leader>", "<tab>"],
+            "before":["<leader>","r"],
             "after":[],
             "commands": [
                 {
-                    "command": "workbench.action.nextEditor",
+                    "command": "workbench.action.tasks.build",
                         "args": []
                 }
             ],
@@ -44,6 +59,50 @@
                     "command": "workbench.action.toggleSidebarVisibility"
                 }
             ]
+        },
+        {
+            "before": ["<leader>", "q"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.closeActiveEditor",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": ["<leader>", "f"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.formatDocument",
+                    "args": []
+                },
+                {   
+                    "command": "workbench.action.files.saveAll",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before":["<C-w>", "m"],
+            "after":[],
+            "commands": [
+                {
+                    "command": "workbench.action.nextEditor",
+                        "args": []
+                }
+            ],
+        },
+        {
+            "before":["<C-w>", "n"],
+            "after":[],
+            "commands": [
+                {
+                    "command": "workbench.action.previousEditor",
+                        "args": []
+                }
+            ],
         },
         {
             "before":["L"],
@@ -61,42 +120,6 @@
             "before":["K"],
             "after":["H"]
         },
-        {
-            "before":["<leader>", "p"],
-            "after":["<C-V>"]
-        },
-        {
-            "before":["<leader>", "y"],
-            "after":["<C-C>"]
-        },
-        {
-            "before":["<Esc>"],
-            "after":[],
-            "commands": [
-                {
-                    "command": ":nohl"
-                }
-            ]
-        },
-        {
-            "before": ["<Enter>"],
-            "after": [],
-            "commands": [
-                {
-                    "command": "workbench.action.files.save",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": ["<leader>", "q"],
-            "after": [],
-            "commands": [
-                {
-                    "command": "workbench.action.closeActiveEditor",
-                    "args": []
-                }
-            ]
-        }
     ],
+    "explorer.confirmDelete": false,
 }

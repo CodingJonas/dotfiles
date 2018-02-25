@@ -267,7 +267,10 @@ bindsym $mod+shift+x exec i3lock -i /home/jonas/Pictures/wallpaper.jpg --color "
 # Startup
 # exec_always --no-startup-id feh --bg-scale /home/jonas/Pictures/wallpaper.jpg
 # exec_always --no-startup-id feh --bg-scale $(ls ~/Pictures/Pokemon_terminal_images/*/* -1 | shuf -n1)
-exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/Yosemite-orange.png
+# exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/Yosemite-orange.png
+# exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/Wind-Vector-resize.png
+# exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/watermelon.png
+exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/abstractdesktophowart.png
 exec_always --no-startup-id compton --config ~/.config/compton.config
 
 exec_always compton
