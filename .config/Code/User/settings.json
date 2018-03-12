@@ -23,6 +23,15 @@
     ],
     "vim.otherModesKeyBindingsNonRecursive": [
         {
+            "before":["<Esc>"],
+            "after":[],
+            "commands": [
+                {
+                    "command": ":nohl"
+                }
+            ]
+        },
+        {
             "before":["<leader>","c"],
             "after":[],
             "commands": [
@@ -103,6 +112,14 @@
                         "args": []
                 }
             ],
+        },
+        {
+            "before": ["j"],
+            "after": ["g", "j"]
+        },
+        {
+            "before": ["k"],
+            "after": ["g", "k"]
         },
         {
             "before":["L"],
