@@ -94,26 +94,6 @@
             ]
         },
         {
-            "before":["<C-w>", "m"],
-            "after":[],
-            "commands": [
-                {
-                    "command": "workbench.action.nextEditor",
-                        "args": []
-                }
-            ],
-        },
-        {
-            "before":["<C-w>", "n"],
-            "after":[],
-            "commands": [
-                {
-                    "command": "workbench.action.previousEditor",
-                        "args": []
-                }
-            ],
-        },
-        {
             "before": ["j"],
             "after": ["g", "j"]
         },

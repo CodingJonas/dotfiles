@@ -12,5 +12,40 @@
     {
         "key": "ctrl+s",
         "command": "-workbench.action.files.save"
-    }
+    },
+    {
+        "key": "ctrl+h",
+        "command": "extension.vim_navigateLeft",
+        "when": "vim.active && vim.use<C-w>",
+    },
+    {
+        "key": "ctrl+j",
+        "command": "extension.vim_navigateDown",
+        "when": "vim.active && vim.use<C-w>",
+    },
+    {
+        "key": "ctrl+k",
+        "command": "extension.vim_navigateUp",
+        "when": "vim.active && vim.use<C-w>",
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "extension.vim_navigateRight",
+        "when": "vim.active && vim.use<C-w>",
+    },
+    {
+        "key": "ctrl+m",
+        "command": "workbench.action.nextEditor",
+        "when": "vim.active && vim.use<C-w>",
+    },
+    {
+        "key": "ctrl+n",
+        "command": "workbench.action.previousEditor",
+        "when": "vim.active && vim.use<C-w>",
+    },
 ]
