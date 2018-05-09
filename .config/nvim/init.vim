@@ -163,6 +163,7 @@ let g:airline_section_y = {}  "shows the formatting, I don't care about that
 let g:airline#extensions#ale#error_symbol="✗ "
 let g:airline#extensions#ale#warning_symbol="⚠ "
 let g:airline_theme='dark' " or light
+let g:powerline_pycmd = "py3"
 
 
 """" ale
