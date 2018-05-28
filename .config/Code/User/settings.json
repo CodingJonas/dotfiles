@@ -1,7 +1,9 @@
 {
     "editor.fontSize": 12,
     "editor.cursorBlinking": "solid",
+    "editor.lineNumbers": "relative",
     "files.autoSave": "onFocusChange",
+    "workbench.editor.enablePreviewFromQuickOpen": false,
 
     // Python settings
     "python.linting.pylintEnabled": false,
@@ -40,6 +42,18 @@
                         "args": []
                 }
             ],
+        },
+        {
+            "before": ["<C-h>"],
+            "after": ["<C-w>", "h"]
+        },
+        {
+            "before": ["<C-l>"],
+            "after": ["<C-w>", "l"]
+        },
+        {
+            "before":["<C-j>"],
+            "after":["<C-w>", "j"],
         },
         {
             "before":["<leader>","t"],
@@ -84,7 +98,8 @@
             "after": [],
             "commands": [
                 {
-                    "command": "editor.action.formatDocument",
+                    // "command": "editor.action.formatDocument",
+                    "command": "eslint.executeAutofix",
                     "args": []
                 },
                 {   
@@ -119,4 +134,8 @@
         },
     ],
     "explorer.confirmDelete": false,
+    "workbench.colorTheme": "Monokai",
+    "editor.minimap.enabled": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "explorer.confirmDragAndDrop": false,
 }
