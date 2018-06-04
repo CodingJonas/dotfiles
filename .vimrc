@@ -81,6 +81,7 @@ set undoreload=10000
 
 " Save swap and backup files neatly at one place
 set backupdir=~/.vim/backup
+set directory=~/.vim/swapfiles//
 
 " Highlight the 80th column
 "highlight ColorColumn guibg=gray15
@@ -89,6 +90,9 @@ set backupdir=~/.vim/backup
 let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[2 q"
+
+" Fix an error with the powerline font
+let g:powerline_pycmd="py3"
 
 """"""""""""""KEY MAPPINGS"""""""""""""""
 """""""""""""""""""""""""""""""""""""""""

@@ -54,7 +54,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git, colored-man-pages, colorize, nyan, web-search)
+plugins=(git, colored-man-pages)
 
 
 # User configuration
@@ -65,7 +65,7 @@ plugins=(git, colored-man-pages, colorize, nyan, web-search)
 # export LANG=en_US.UTF-8
 
 # Make neovim my standard editor
-export EDITOR=/usr/bin/nvim
+export EDITOR=/usr/bin/vim
 export BROWSER=/usr/bin/google-chrome-stable
 
 # Preferred editor for local and remote sessions
@@ -116,8 +116,6 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
 fi
 
-# Source to make autojump work
-source /etc/profile.d/autojump.zsh
 source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
 
@@ -127,3 +125,9 @@ source $HOME/.aliases
 # Make Tensorflow stop complaining
 # export TF_CPP_MIN_LOG_LEVEL=2
 # export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+
+powerline-daemon -q
+. /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+
+# ls with color
+eval `dircolors ~/.dircolors`

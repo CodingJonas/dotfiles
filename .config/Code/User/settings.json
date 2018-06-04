@@ -119,4 +119,5 @@
         },
     ],
     "explorer.confirmDelete": false,
+    "editor.minimap.enabled": false,
 }

@@ -1,12 +1,13 @@
-alias init.vim="nvim ~/.config/nvim/init.vim"
-alias i3.config="nvim ~/.config/i3/config"
-alias view="nvim -R"
-alias zshrc="nvim ~/.zshrc"
+alias init.vim="vim ~/.config/nvim/init.vim"
+alias i3.config="vim ~/.config/i3/config"
+alias view="vim -R"
+alias zshrc="vim ~/.zshrc"
 alias please='sudo $(fc -nl -1)'
 alias signalMessenger="google-chrome-stable --app-id=bikioccmkafdpakkkcpdbppfkghcmihk"
 alias setclip="xclip -selection c"
 alias getclip="xclip -selection c -o"
 alias switchAudio="sh /home/jonas/scripts/switch_hdmi_builtin.sh"
+alias ls='ls --color=auto'
 
 # stupid catkin, uses python2
 alias catkin_make="catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python2 -DPYTHON_INCLUDE_DIR=/usr/include/python2.7 -DPYTHON_LIBRARY=/usr/lib/libpython2.7.so"
