@@ -136,7 +136,7 @@
     "explorer.confirmDelete": false,
     "editor.minimap.enabled": false,
     "workbench.colorTheme": "Monokai",
-    "editor.minimap.enabled": false,
     "workbench.startupEditor": "newUntitledFile",
     "explorer.confirmDragAndDrop": false,
+    "window.menuBarVisibility": "toggle",
 }

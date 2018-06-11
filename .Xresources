@@ -58,7 +58,7 @@
 
 
 
-! I don't use this currently
+! I do not use this currently
 rofi-color-enabled: true
 !                  bg       border   separator
 rofi.color-window: #282828, #a89984, #a89984

@@ -106,7 +106,7 @@ interval = 2
 label = %output%
 format = <label>
 format-underline = #689F38
-format-prefix = "disk "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 exec = df -m /dev/sda4 | sed -En 's~.* ([0-9]+)([0-9]{3}) +([0-9]+%).*~\1.\2MB/\3~gp'
 
@@ -189,7 +189,7 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "cpu "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #D84315
 label = %percentage%%
@@ -197,7 +197,7 @@ label = %percentage%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "ram "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #EF6C00
 label = %percentage_used%%
