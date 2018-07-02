@@ -87,7 +87,7 @@ set $mod Mod4
 set $alt_l Mod1
 
 # window switcher
-bindsym $mod+t exec rofi -show window
+bindsym $mod+t exec rofi -theme Arc-Dark -font "DejaVu Sans Mono 12" -show window
 
 # Go back to previous workspace easier
 workspace_auto_back_and_forth yes
@@ -102,7 +102,8 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-Bindsym $mod+d exec rofi -theme Arc-Dark -font "DejaVu Sans Mono 12" -show combi
+# the last part ensures the program is run on the screen rofi is on currey
+Bindsym $mod+d exec rofi -theme Arc-Dark -font "DejaVu Sans Mono 12" -show run -run-command 'i3 exec {cmd}'
 
 # change focus
 bindsym $mod+h focus left
@@ -239,7 +240,7 @@ bindsym XF86AudioMute exec "sh ~/scripts/volumectrl.sh toggle"
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 && pkill -RTMIN+2 i3blocks # increase screen brightness
-BINDSYM xf86MonBrightnessDown exec xbacklight -dec 10 && pkill -RTMIN+2 i3blocks  # decrease screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 && pkill -RTMIN+2 i3blocks  # decrease screen brightness
 
 # Touchpad control
 # bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad

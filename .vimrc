@@ -9,14 +9,11 @@ set background=dark
 " Handle tpp as cpp
 autocmd BufEnter *.tpp :setlocal filetype=cpp
 
-" Save automatically when leaving a buffer
-au BufLeave * silent! wall
-
 " Delete all empty lines in the end
 autocmd BufWritePre * :%s/\s\+$//e
 
 " Autosave if focus lost, only supported in terminal version
-au FocusLost * :wa
+au BufLeave,FocusLost * :wa
 
 " restore_view needs this
 set viewoptions=cursor,folds,slash,unix

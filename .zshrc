@@ -131,3 +131,5 @@ powerline-daemon -q
 
 # ls with color
 eval `dircolors ~/.dircolors`
+
+export PATH=$PATH:~/scripts
