@@ -3,18 +3,22 @@
 
 WINDOWS=()
 PIDS=()
-TERMINAL_NAME="termite"
-SLEEP_TIME=0.1 #seconds to wait before checking if process has finished
+SLEEP_TIME=0.1 # Seconds to wait before checking if process has finished
+
+# Add to this dictionary all wrong names, ["wrong_name"]="right_name"
+declare -A REPLACE_WINDOWS=( ["google-chrome"]="chrome" )
 
 running_gui_apps() {
     #WINDOWS=("chrome" "spotify")
     WINDOWS=($(xlsclients | awk -v x="$TERMINAL_NAME" '$2!=x { print $2}'))
 
-    # Replace google-chrome by chrome, since xlsclients returns the wrong name
-    for i in "${!WINDOWS[@]}"; do
-        if [[ ${WINDOWS[$i]} == "google-chrome" ]]; then
-            WINDOWS[$i]="chrome"
-        fi
+    # Replace programs that are listed wrong, since xlsclients returns the wrong name
+    for newWindowName in "${!REPLACE_WINDOWS[@]}"; do
+        for i in "${!WINDOWS[@]}"; do
+            if [[ ${WINDOWS[$i]} == "$newWindowName" ]]; then
+                WINDOWS[$i]="${REPLACE_WINDOWS[$newWindowName]}"
+            fi
+        done
     done
 }
 
@@ -41,9 +45,9 @@ kill_windows(){
 
 running_gui_apps
 count=2
-# echo ${WINDOWS[@]}
-kill_windows
+echo ${WINDOWS[@]}
+#kill_windows
 
-shutdown now
+#shutdown now
 
 
