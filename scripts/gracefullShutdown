@@ -1,31 +1,33 @@
 #!/bin/bash
-# Shuts down the computer, but closes all in WINDOWS specified programs first
+# Shuts down the computer, but closes all graphical windows first
 
-WINDOWS=()
-PIDS=()
-SLEEP_TIME=0.1 # Seconds to wait before checking if process has finished
+windows=()
+terminal_name="termite"
+readonly sleep_time=0.1 # Seconds to wait before checking if process has finished
 
 # Add to this dictionary all wrong names, ["wrong_name"]="right_name"
-declare -A REPLACE_WINDOWS=( ["google-chrome"]="chrome" )
+declare -A replace_windows=( ["google-chrome"]="chrome" )
 
-running_gui_apps() {
-    WINDOWS=($(xlsclients | awk -v x="$TERMINAL_NAME" '$2!=x { print $2}'))
+find_running_gui_apps() {
+    # Find all active windows except terminals
+    windows=( $(xlsclients | awk -v x="$terminal_name" '$2!=x { print $2}') )
 
     # Replace programs that are listed wrong, since xlsclients returns the wrong name
-    for newWindowName in "${!REPLACE_WINDOWS[@]}"; do
-        for i in "${!WINDOWS[@]}"; do
-            if [[ ${WINDOWS[$i]} == "$newWindowName" ]]; then
-                WINDOWS[$i]="${REPLACE_WINDOWS[$newWindowName]}"
+    for newWindowName in "${!replace_windows[@]}"; do
+        for i in "${!windows[@]}"; do
+            if [[ ${windows[$i]} == "$newWindowName" ]]; then
+                windows[$i]="${replace_windows[$newWindowName]}"
             fi
         done
     done
 }
 
 kill_windows(){
-    for windowName in "${WINDOWS[@]}"
+    for windowName in "${windows[@]}"
     do
-        pkill $windowName
-        if [ $? -eq 0 ]
+        #pkill "$windowName"
+        #if [ $? -eq 0 ]
+        if pkill "$windowName"
         then
             echo "Kill $windowName"
         else
@@ -33,19 +35,17 @@ kill_windows(){
         fi
 
         count=0
-        while pkill -0 $windowName;
+        while pkill -0 "$windowName";
         do
-            echo "Waiting for $windowName ($(echo "$count $SLEEP_TIME" | awk '{printf "%.1f", $1 * $2}')s)"
-            sleep $SLEEP_TIME
+            echo "Waiting for $windowName ($(echo "$count $sleep_time" | awk '{printf "%.1f", $1 * $2}')s)"
+            sleep $sleep_time
             count=$((++count))
         done
     done
 }
 
-running_gui_apps
-#echo ${WINDOWS[@]}
+find_running_gui_apps
+#echo ${windows[@]}
 kill_windows
 
 shutdown now
-
-
