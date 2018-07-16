@@ -33,19 +33,29 @@ kill_windows(){
         else
             echo "Error: Could not kill $windowName"
         fi
+    done
+    echo "-> Sent kill message to all ${$windows[@]} windows"
+}
 
-        count=0
-        while pkill -0 "$windowName";
-        do
-            echo "Waiting for $windowName ($(echo "$count $sleep_time" | awk '{printf "%.1f", $1 * $2}')s)"
-            sleep $sleep_time
-            count=$((++count))
-        done
+check_windows_killed(){
+    count=0
+    while pkill -0 "$windowName";
+    do
+        echo "Waiting for $windowName ($(echo "$count $sleep_time" | awk '{printf "%.1f", $1 * $2}')s)"
+        sleep $sleep_time
+        count=$((++count))
+
+        if $count -gt 70
+        then
+            echo "$windowName does not stop, send SIGKILL instead of SIGTERM"
+            pkill -9 $windowName
+        fi
     done
 }
 
 find_running_gui_apps
 #echo ${windows[@]}
 kill_windows
+check_windows_killed
 
 shutdown now
