@@ -1,10 +1,131 @@
 syntax on
 let mapleader = "\<Space>"
 set background=dark
-" colorscheme gruvbox
+colorscheme gruvbox
 
-""""""""""""""""""""""""""""""""""""""""
-"""""""""""" GENERAL SETTINGS""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""PLUGINS"""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""
+call plug#begin('~/.vim/plugged')
+" File Browser
+Plug 'scrooloose/nerdtree'
+
+" Commenter
+Plug 'tpope/vim-commentary'
+
+" Autocomplete
+Plug 'Valloric/YouCompleteMe'
+
+" Restore view after opening a file
+Plug 'vim-scripts/restore_view.vim'
+
+" Swap windows easily
+Plug 'wesQ3/vim-windowswap'
+
+" Open/Close pairs automatically
+Plug 'jiangmiao/auto-pairs'
+
+" Auto-formatting for python
+Plug 'rhysd/vim-clang-format', has('python') ? { 'on': [] } : {}
+
+" Improve status line
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Syntax checking
+" Plug 'vim-syntastic/syntastic'
+" Plug 'w0rp/ale'
+
+" Change background of hex colors to what they define
+Plug 'chrisbra/Colorizer'
+
+" Visualize git commits and status
+Plug 'jreybert/vimagit'
+
+call plug#end()
+
+
+"""""""""""""""""""""""""""""""""""""""""
+"""""""""""""PLUGIN SETTINGS"""""""""""""
+"""""""""""""""""""""""""""""""""""""""""
+"""""" NERDTREE
+nnoremap <leader>t :NERDTreeToggle<CR>
+autocmd BufEnter * lcd %:p:h
+"close vim if the only window left is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" close nerdtree when opening a new window
+let g:NERDTreeQuitOnOpen=1
+
+
+"""""" commentary
+nmap <leader>c gc
+nmap <leader>C Ygccp
+vmap <leader>c gc
+autocmd FileType cpp setlocal commentstring=//\ %s
+
+"""""" youcompleteme
+let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_semantic_triggers = {
+	\   'python': [ 're!\w{2}' ]
+	\ }
+
+"""""" vim-windowswap
+let g:windowswap_map_keys = 0 "prevent default bindings
+nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<CR>
+nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
+nnoremap <silent> <leader>w :call WindowSwap#EasyWindowSwap()<CR>
+
+
+""""" vim-clang-format
+let g:clang_format#detect_style_file = 1
+nnoremap <Leader>f :ClangFormat<CR>
+vnoremap <Leader>f :ClangFormat<CR>
+" Set a marker to jump back to position after formatting
+nmap <Leader>F mz:ClangFormatAutoToggle<CR>`z
+
+
+""""" vim airline
+let g:airline_powerline_fonts = 1
+let g:airline_section_y = {}  "shows the formatting, I don't care about that
+let g:airline#extensions#ale#error_symbol="✗ "
+let g:airline#extensions#ale#warning_symbol="⚠ "
+let g:airline_theme='dark' " or light
+let g:powerline_pycmd = "py3"
+
+
+"""" ale
+let g:ale_echo_msg_error_str = '✗'
+let g:ale_echo_msg_warning_str = '⚠'
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚠'
+let g:ale_statusline_format = ['✗ %d', '⚠ %d', '⬥ ok']
+let g:ale_open_list = 1
+" Close vim if the only window left is a quickfix window
+autocmd bufenter * if (&buftype == 'quickfix') | q | endif
+" I make mistakes constantly. No need to remind me all the time
+let g:ale_lint_on_text_changed = 'never'
+" Change compiler options for c++
+let ale_cpp_clang_options = '-std=c++14 -Wall -Wno-write-strings'
+
+""""" syntasics
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_error_symbol = "✗"
+" let g:syntastic_cpp_compiler_options = "-std=c++11 -Wall -Wextra -Wpedantic"
+
+""""" Colorizer
+let g:colorizer_x11_names = 1
+:let g:colorizer_auto_filetype='css,html'
+noremap <leader>CC      :ColorToggle<Cr>
+
+"""""""""""""""""""""""""""""""""""""""""
+"""""""""""""GENERAL SETTINGS""""""""""""
 """""""""""""""""""""""""""""""""""""""""
 " Handle tpp as cpp
 autocmd BufEnter *.tpp :setlocal filetype=cpp
@@ -34,7 +155,7 @@ set ruler
 set nu
 set relativenumber
 
-"brace face
+" brace face
 set showmatch
 set matchtime=3
 
