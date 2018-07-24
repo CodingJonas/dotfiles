@@ -17,6 +17,9 @@ Plug 'tpope/vim-commentary'
 " Autocomplete
 Plug 'Valloric/YouCompleteMe'
 
+" run make async
+Plug 'skywind3000/asyncrun.vim'
+
 " Restore view after opening a file
 Plug 'vim-scripts/restore_view.vim'
 
@@ -50,32 +53,45 @@ call plug#end()
 """""""""""""PLUGIN SETTINGS"""""""""""""
 """""""""""""""""""""""""""""""""""""""""
 """""" NERDTREE
-nnoremap <leader>t :NERDTreeToggle<CR>
+nnoremap <leader>d :NERDTreeToggle<CR>
 autocmd BufEnter * lcd %:p:h
 "close vim if the only window left is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " close nerdtree when opening a new window
 let g:NERDTreeQuitOnOpen=1
 
-
 """""" commentary
 nmap <leader>c gc
-nmap <leader>C Ygccp
+nmap <leader>cy Ygccp
 vmap <leader>c gc
 autocmd FileType cpp setlocal commentstring=//\ %s
 
 """""" youcompleteme
 let g:ycm_min_num_of_chars_for_completion = 2
-let g:ycm_semantic_triggers = {
-	\   'python': [ 're!\w{2}' ]
-	\ }
+
+""""" asyncRun
+augroup vimrc
+    autocmd QuickFixCmdPost * botright copen 12
+    " autocmd QuickFixCmdPre * let g:mybufname=bufname('%')
+    " autocmd QuickFixCmdPost * botright copen 8 | exec bufwinnr(g:mybufname) . 'wincmd w'
+augroup END
+nnoremap <leader>mm :AsyncRun -cwd=<root> make<CR>
+nnoremap <leader>mt :AsyncRun -cwd=<root> make test<CR>
+nnoremap <leader>mc :AsyncRun -cwd=<root> make clean<CR>
+nnoremap <leader>mr :AsyncRun -cwd=<root> make run<CR>
+nnoremap <C-c> :AsyncStop<CR>
+
+" Always use the next Makefile about the current program
+let g:asyncrun_rootmarks = ['Makefile', '.svn', '.git', '.root', '.bzr', '_darcs', 'build.xml']
+" let g:asyncrun_status = "stopped"
+" Show status of make command in vim-airline
+" let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
 
 """""" vim-windowswap
 let g:windowswap_map_keys = 0 "prevent default bindings
 nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<CR>
 nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
 nnoremap <silent> <leader>w :call WindowSwap#EasyWindowSwap()<CR>
-
 
 """"" vim-clang-format
 let g:clang_format#detect_style_file = 1
@@ -249,6 +265,7 @@ noremap `` ''
 
 " Stop highlighting
 nnoremap <esc> :noh<return><esc>
+nnoremap <esc>^[ <esc>^[
 
 " For split selection
 nnoremap <c-h> <c-w>h

@@ -1,4 +1,5 @@
 alias init.vim="vim ~/.config/nvim/init.vim"
+alias vimrc="vim ~/.vimrc"
 alias i3.config="vim ~/.config/i3/config"
 alias view="vim -R"
 alias zshrc="vim ~/.zshrc"

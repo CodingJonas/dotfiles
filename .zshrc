@@ -126,9 +126,6 @@ source $HOME/.aliases
 # export TF_CPP_MIN_LOG_LEVEL=2
 # export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
-powerline-daemon -q
-. /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
-
 # ls with color
 eval `dircolors ~/.dircolors`
 
