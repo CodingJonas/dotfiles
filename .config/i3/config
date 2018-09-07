@@ -197,8 +197,13 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-# put computer into suspend
-bindsym $mod+Shift+s exec systemctl suspend
+
+# Update lockscreen image with
+# betterlockscreen -u path/to/image -r 1920x1080 [--blur][--dim]
+# Put computer into suspend
+bindsym $mod+Control+Shift+s exec "betterlockscreen -s"
+# Lock screen
+bindsym $mod+Control+Shift+l exec "betterlockscreen -l"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

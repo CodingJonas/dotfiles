@@ -143,8 +143,9 @@ noremap <leader>CC      :ColorToggle<Cr>
 """""""""""""""""""""""""""""""""""""""""
 """""""""""""GENERAL SETTINGS""""""""""""
 """""""""""""""""""""""""""""""""""""""""
-" Handle tpp as cpp
-autocmd BufEnter *.tpp :setlocal filetype=cpp
+" Handle unkown filetypes
+autocmd BufEnter,BufNewFile *.tpp :setlocal filetype=cpp
+autocmd BufRead,BufNewFile *.njk set filetype=html
 
 " Delete all empty lines in the end
 autocmd BufWritePre * :%s/\s\+$//e

@@ -1,6 +1,10 @@
 [ -f ~/.xprofile ] && . ~/.xprofile
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
+dbus-update-activation-environment --systemd DISPLAY
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
+
 # set scrolling and input delay to 150ms
 xset r rate 150
 
