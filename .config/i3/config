@@ -203,7 +203,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # Put computer into suspend
 bindsym $mod+Control+Shift+s exec "betterlockscreen -s"
 # Lock screen
-bindsym $mod+Control+Shift+l exec "betterlockscreen -l"
+bindsym $mod+Control+Shift+x exec "betterlockscreen -l"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

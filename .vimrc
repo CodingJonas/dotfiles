@@ -36,6 +36,9 @@ Plug 'rhysd/vim-clang-format', has('python') ? { 'on': [] } : {}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" vim and tmux
+Plug 'christoomey/vim-tmux-navigator'
+
 " Syntax checking
 " Plug 'vim-syntastic/syntastic'
 " Plug 'w0rp/ale'
