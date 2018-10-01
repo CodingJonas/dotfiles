@@ -8,6 +8,7 @@
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
+#
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -56,10 +57,10 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 ####
 # i3 gaps specific settings
-gaps inner 0 # was 8
-gaps outer 0
-smart_gaps on
-for_window [class="^.*"] border pixel 2
+# gaps inner 0 # was 8
+# gaps outer 0
+# smart_gaps on
+# for_window [class="^.*"] border pixel 2
 ####
 
 # Start polybar
@@ -208,11 +209,6 @@ bindsym $mod+Control+Shift+x exec "betterlockscreen -l"
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym h resize shrink width 5 px or 5 ppt
         bindsym k resize grow height 5 px or 5 ppt
         bindsym j resize shrink height 5 px or 5 ppt
@@ -261,12 +257,11 @@ bindsym $alt_l+s exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spot
 bindsym $alt_l+d exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 bindsym $alt_l+a exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 
-bindsym $mod+shift+x exec i3lock -i /home/jonas/Pictures/wallpaper.jpg --color "$bg-color"
+bindsym $mod+shift+x exec i3lock -i ~/Pictures/wallpaper.jpg --color "$bg-color"
 
 # Startup
-# exec_always --no-startup-id feh --bg-scale /home/jonas/Pictures/wallpaper.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
 # exec_always --no-startup-id feh --bg-scale $(ls ~/Pictures/Pokemon_terminal_images/*/* -1 | shuf -n1)
-exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/airplane_classico.png
 exec_always --no-startup-id compton --config ~/.config/compton.config
 
 exec_always compton
@@ -277,17 +272,15 @@ for_window [class="Spotify"] move to workspace $workspace10
 exec nm-applet
 
 # Browser
-exec google-chrome-stable
-assign [class="Google-chrome"] $workspace2
-for_window [class="Google-chrome"] border none
-# exec qutebrowser
-# assign [class="qutebrowser"] $workspace2
-# for_window [class="qutebrowser"] border none
+exec firefox
+assign [class="Firefox"] $workspace2
 
 # Chat windows
 exec rambox
 assign [class="Rambox"] $workspace1
 
+# No border for these windows
+for_window [class="Firefox"] border none
 for_window [class="Rambox"] border none
 for_window [class="Thunderbird"] border none
 for_window [class="Spotify"] border none
@@ -295,9 +288,6 @@ for_window [class="Spotify"] border none
 # Notifications for sound and in general
 exec --no-startup-id volnoti -t 0.9
 exec --no-startup-id dunst
-
-# Make certain workspaces stacked. To change this, change the script
-exec_always ~/.config/i3/contrib/per-workspace-layout.pl
 
 # For debugging graphical windows, I need floating windows
 for_window [class="i3 - make this float!"] floating enable
