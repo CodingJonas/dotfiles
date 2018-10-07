@@ -29,8 +29,9 @@ Plug 'wesQ3/vim-windowswap'
 " Open/Close pairs automatically
 Plug 'jiangmiao/auto-pairs'
 
-" Auto-formatting for python
-Plug 'rhysd/vim-clang-format', has('python') ? { 'on': [] } : {}
+" Auto-formatting for python and everything else
+" Plug 'rhysd/vim-clang-format', has('python') ? { 'on': [] } : {}
+Plug 'Chiel92/vim-autoformat'
 
 " Improve status line
 Plug 'vim-airline/vim-airline'
@@ -96,12 +97,10 @@ nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<CR>
 nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
 nnoremap <silent> <leader>w :call WindowSwap#EasyWindowSwap()<CR>
 
-""""" vim-clang-format
-let g:clang_format#detect_style_file = 1
-nnoremap <Leader>f :ClangFormat<CR>
-vnoremap <Leader>f :ClangFormat<CR>
+""""" vim-autoformat
+noremap <Leader>f :AutoFormat<CR>
 " Set a marker to jump back to position after formatting
-nmap <Leader>F mz:ClangFormatAutoToggle<CR>`z
+" nmap <Leader>F mz:ClangFormatAutoToggle<CR>`z
 
 
 """"" vim airline

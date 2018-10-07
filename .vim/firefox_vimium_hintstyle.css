@@ -1,0 +1,23 @@
+/* This has nothing to do with vim, but with the firefox/chrome plugin vimium. I just figured this is the best place to keep my settings */
+/* Link hint boxes */
+div > .vimiumHintMarker {
+  padding: 2px 3px;
+  background-color: #3fd2ff;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: inset 0 -2px -2px #1464cc;
+  background-image: none;
+}
+
+/* Link hint text */
+div > .vimiumHintMarker span {
+  font-size: 11px;
+  font-weight: bold;
+  text-shadow: none;
+  color: #010a16;
+}
+
+/* Link hint matching characters */
+div > .vimiumHintMarker > .matchingCharacter {
+  color: #1464cc;
+}
