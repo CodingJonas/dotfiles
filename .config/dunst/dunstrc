@@ -1,6 +1,5 @@
-
 [global]
-    font = "DejaVu Sans Mono 8"
+    font = "Droid Sans 8"
     allow_markup = yes
     format = "<b>%s</b>\n%b"
     sort = yes
@@ -18,8 +17,8 @@
     sticky_history = yes
     line_height = 0
     separator_height = 2
-    padding = 4
-    horizontal_padding = 4
+    padding = 8
+    horizontal_padding = 8
     separator_color = "#585858"
     startup_notification = false
     # https://github.com/knopwob/dunst/issues/26#issuecomment-36159395
@@ -37,16 +36,16 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    background = "#003090"
-    foreground = "#f3f4f5"
+    background = "#181818"
+    foreground = "#E3C7AF"
     timeout = 5
 
 [urgency_normal]
-    background = "#003090"
-    foreground = "#f3f4f5"
+    background = "#181818"
+    foreground = "#E3C7AF"
     timeout = 20
 
 [urgency_critical]
-    background = "#003090"
-    foreground = "#f3f4f5"
+    background = "#181818"
+    foreground = "#E3C7AF"
     timeout = 0
