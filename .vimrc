@@ -98,7 +98,7 @@ nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
 nnoremap <silent> <leader>w :call WindowSwap#EasyWindowSwap()<CR>
 
 """"" vim-autoformat
-noremap <Leader>f :AutoFormat<CR>
+noremap <Leader>f :Autoformat<CR>
 " Set a marker to jump back to position after formatting
 " nmap <Leader>F mz:ClangFormatAutoToggle<CR>`z
 
