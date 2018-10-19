@@ -14,5 +14,8 @@ alias ll='ls -lhA --color=auto'
 
 alias sourcevenv='source venv/bin/activate'
 
+# compile latex file in the background while I'm working on it
+alias latexmk_in_background='latexmk -pvc'
+
 # stupid catkin, uses python2
 alias catkin_make="catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python2 -DPYTHON_INCLUDE_DIR=/usr/include/python2.7 -DPYTHON_LIBRARY=/usr/lib/libpython2.7.so"
