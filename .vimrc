@@ -29,6 +29,9 @@ Plug 'wesQ3/vim-windowswap'
 " Open/Close pairs automatically
 Plug 'jiangmiao/auto-pairs'
 
+" t/T/f/F over multiple lines
+Plug 'dahu/vim-fanfingtastic'
+
 " Auto-formatting for python and everything else
 " Plug 'rhysd/vim-clang-format', has('python') ? { 'on': [] } : {}
 Plug 'Chiel92/vim-autoformat'
@@ -39,6 +42,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 " vim and tmux
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'benmills/vimux'
 
 " Syntax checking
 " Plug 'vim-syntastic/syntastic'
@@ -66,12 +70,15 @@ let g:NERDTreeQuitOnOpen=1
 
 """""" commentary
 nmap <leader>c gc
-nmap <leader>cy Ygccp
 vmap <leader>c gc
+" copy line to above or below and comment the original one out
+nmap <leader>cj Ygccp
+nmap <leader>ck Ygcckp
 autocmd FileType cpp setlocal commentstring=//\ %s
 
 """""" youcompleteme
 let g:ycm_min_num_of_chars_for_completion = 2
+set completeopt-=preview
 
 """"" asyncRun
 augroup vimrc
@@ -79,17 +86,36 @@ augroup vimrc
     " autocmd QuickFixCmdPre * let g:mybufname=bufname('%')
     " autocmd QuickFixCmdPost * botright copen 8 | exec bufwinnr(g:mybufname) . 'wincmd w'
 augroup END
-nnoremap <leader>mm :AsyncRun -cwd=<root> make<CR>
-nnoremap <leader>mt :AsyncRun -cwd=<root> make test<CR>
-nnoremap <leader>mc :AsyncRun -cwd=<root> make clean<CR>
+" nnoremap <leader>mm :AsyncRun -cwd=<root> make<CR>
+" nnoremap <leader>mt :AsyncRun -cwd=<root> make test<CR>
+" nnoremap <leader>mc :AsyncRun -cwd=<root> make clean<CR>
 nnoremap <leader>mr :AsyncRun -cwd=<root> make run<CR>
-nnoremap <C-c> :AsyncStop<CR>
+" nnoremap <C-c> :AsyncStop<CR>
 
-" Always use the next Makefile about the current program
+" Always use the next Makefile above the current program
 let g:asyncrun_rootmarks = ['Makefile', '.svn', '.git', '.root', '.bzr', '_darcs', 'build.xml']
 " let g:asyncrun_status = "stopped"
 " Show status of make command in vim-airline
 " let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
+
+""""" vimux
+nnoremap <leader>mm :VimuxRunCommand("make")<CR>
+nnoremap <leader>mt :VimuxRunCommand("make test")<CR>
+nnoremap <leader>mc :VimuxRunCommand("make clean")<CR>
+nnoremap <leader>mn :VimuxRunCommand("make run FILE=" . expand("%:p"))<CR>
+nnoremap <C-c> :VimuxInterruptRunner<CR>
+" Orientation of the new window set h or v
+let g:VimuxOrientation = "v"
+" Select the pane vimux should use for output
+map <Leader>v0 :call VimuxSetPane(0)<CR>
+map <Leader>v1 :call VimuxSetPane(1)<CR>
+map <Leader>v2 :call VimuxSetPane(2)<CR>
+map <Leader>v3 :call VimuxSetPane(3)<CR>
+map <Leader>v4 :call VimuxSetPane(4)<CR>
+map <leader>vv :echo g:VimuxRunnerIndex<CR>
+function VimuxSetPane(paneIndex)
+   let g:VimuxRunnerIndex = a:paneIndex
+endfunction
 
 """""" vim-windowswap
 let g:windowswap_map_keys = 0 "prevent default bindings
@@ -242,6 +268,7 @@ inoremap jk <esc>
 noremap H ^
 noremap L $
 
+" Save current file with enter key
 nnoremap <cr> :w<cr>
 
 " Give arrow keys a better purpose
@@ -250,7 +277,7 @@ noremap <up> ddkP
 vnoremap <down> dp
 vnoremap <down> dkP
 
-" Folding
+" TODO: Folding
 setlocal foldmethod=syntax
 nnoremap < za
 nnoremap > zA
@@ -269,6 +296,14 @@ noremap `` ''
 " Stop highlighting
 nnoremap <esc> :noh<return><esc>
 nnoremap <esc>^[ <esc>^[
+
+" Toggle line and column highlighting
+nnoremap <leader>hc :set cursorcolumn!<cr>
+nnoremap <leader>hl :set cursorline!<cr>
+" This will highlight the current line and keep it highlighted even when the cursor moves
+" Bonus: 'l will jump to the highlighted line
+nnoremap <silent> <leader>hL ml:execute 'match Search /\%'.line('.').'l/'<CR>
+nnoremap <leader>hM :match<CR>
 
 " For split selection
 nnoremap <c-h> <c-w>h
