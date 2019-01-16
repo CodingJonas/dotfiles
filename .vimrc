@@ -353,6 +353,9 @@ set mouse=a
 " Use # as comment string in cmake files
 autocmd FileType cmake setl cms=#%s
 
+" Count number of occurences of word under cursor
+map <leader>* *<C-O>:%s///n<CR>
+
 onoremap <silent> <expr> j ScreenMovement("j")
 onoremap <silent> <expr> k ScreenMovement("k")
 onoremap <silent> <expr> 0 ScreenMovement("0")
