@@ -305,6 +305,9 @@ nnoremap <leader>hl :set cursorline!<cr>
 nnoremap <silent> <leader>hL ml:execute 'match Search /\%'.line('.').'l/'<CR>
 nnoremap <leader>hM :match<CR>
 
+" Format json objects
+nnoremap <leader>Fj :%!python -m json.tool<CR>
+
 " For split selection
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
