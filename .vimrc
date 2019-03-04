@@ -341,6 +341,10 @@ nnoremap <leader>r :%s/
 nnoremap <leader>o o<esc>^Dk
 nnoremap <leader>O O<esc>^Dj
 
+" Jump easily between last edits
+nnoremap <tab> g;
+nnoremap <s-tab> g,
+
 " mapping to make movements operate on 1 screen line in wrap mode
 function! ScreenMovement(movement)
     if &wrap
